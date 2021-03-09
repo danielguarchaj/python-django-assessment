@@ -38,6 +38,7 @@ THIRD_PARTY_APPS = ()
 
 LOCAL_APPS = (
     'moviesapp.movies.apps.MoviesConfig',
+    'movies_api.apps.MoviesApiConfig',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

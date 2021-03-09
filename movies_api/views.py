@@ -3,9 +3,9 @@ from rest_framework.generics import ListCreateAPIView, RetrieveDestroyAPIView
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from .serializers import MovieSerializer, RatingSerializer
-from .api_filters import MovieFilter
+from .filters import MovieFilter
 
-from .models import Movie, Rating
+from moviesapp.movies.models import Movie, Rating
 
 class MovieListCreateView(ListCreateAPIView):
     queryset = Movie.objects.all()

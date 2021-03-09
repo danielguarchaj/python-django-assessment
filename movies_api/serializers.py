@@ -1,8 +1,6 @@
 from rest_framework import serializers
 
-# from django.contrib.auth.models import User
-
-from .models import Movie, Rating
+from moviesapp.movies.models import Movie, Rating
 from django.db.models import Avg
 
 

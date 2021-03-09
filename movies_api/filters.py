@@ -1,5 +1,5 @@
 from django_filters import rest_framework as filters
-from .models import Movie
+from moviesapp.movies.models import Movie
 
 class MovieFilter(filters.FilterSet):
   class Meta:
