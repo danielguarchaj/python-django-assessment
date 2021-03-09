@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 import os
 import django_heroku
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 APPS_DIR = os.path.join(ROOT_DIR, 'moviesapp/')
 
@@ -160,4 +160,4 @@ AUTHENTICATION_BACKENDS = (
 
 ADMIN_URL = 'admin/'
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
