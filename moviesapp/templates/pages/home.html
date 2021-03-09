@@ -1,32 +1,38 @@
 {% extends 'base.html' %} {% load static i18n %}
 
+{% block content %}
 <div class="jumbotron">
-  <h1>{% blocktrans %}Welcome to Django Framework{% endblocktrans %}</h1>
+  <h1>{% blocktrans %}Welcome to the NicaSource Movies App{% endblocktrans %}</h1>
   <p>
-    {% blocktrans %}Congratulations! You have successfully installed the Movies
-    CRUD App. You are currently running Django Framework.{% endblocktrans %}
+    {% blocktrans %}
+      From this page you can click on the "Movies" link located in the navbar, it will take you to the web interface of the app
+    {% endblocktrans %}
   </p>
   <p>
     <a
       class="btn btn-success btn-lg"
-      href="https://github.com/django/django"
+      href="https://github.com/danielguarchaj/python-django-assessment.git"
       target="_blank"
-      >{% blocktrans %}Fork Django on GitHub{% endblocktrans %} &raquo;</a
+      >{% blocktrans %}Check out the Github repository{% endblocktrans %} &raquo;</a
     >
   </p>
 </div>
 
+<h1>REST API Endpoints</h1>
+
 <div class="row">
+
   <div class="col-md-4">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">
-          {% blocktrans %}Follow Development{% endblocktrans %}
+          <a href="/api/movies/" target="_blank">Movies list</a>
         </h3>
       </div>
       <div class="panel-body">
         <p>
-          {% blocktrans %}Django is under active development...{% endblocktrans%}
+          It will return a list of all the movies sorted by rating and date (descending)
+          No authentication is required
         </p>
       </div>
     </div>
@@ -36,11 +42,13 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">
-          {% blocktrans %}Discover Modules{% endblocktrans %}
+          <a href="/api/movies/1" target="_blank">Retrieve or delete a movie</a>
         </h3>
       </div>
       <div class="panel-body">
-        <p>{% blocktrans %}The community is working on...{% endblocktrans %}</p>
+        <p>
+          It gets a specific movie by its id, the endpoint also accept delete method
+        </p>
       </div>
     </div>
   </div>
@@ -49,15 +57,49 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">
-          {% blocktrans %}Help &amp; Support{% endblocktrans %}
+          <a href="/api/ratings/" target="_blank">Ratings list and create</a>
         </h3>
       </div>
       <div class="panel-body">
         <p>
-          {% blocktrans %}If you need any help or support while developing with
-          Django, you may reach us via...{% endblocktrans %}
+          It will return a list of all the ratings submited by the users, 
+          it also supports the POST method creating a new rating, 
+          this method requires an authentication token
         </p>
       </div>
     </div>
   </div>
+
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <a href="/api/token/" target="_blank">Get a valid JWT Token</a>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <p>
+          This endpoint support only POST method and requires a valid username and password in order to generate a new token for the user.
+          This token is used to create ratings.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <a href="/api/token/refresh/" target="_blank">Refresh a valid JWT Token</a>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <p>
+          This endpoint support only POST method and requires a valid jwt, then it will return a new token.
+        </p>
+      </div>
+    </div>
+  </div>
+
 </div>
+{% endblock %}
