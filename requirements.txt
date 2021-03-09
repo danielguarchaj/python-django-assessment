@@ -81,3 +81,4 @@ djangorestframework-simplejwt
 # Heroku
 
 django-heroku==0.3.1
+gunicorn
